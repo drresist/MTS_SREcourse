@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+.venv
+.vscode/settings.json
+__pycache__/
+*.log
+molecule/**/tmp
+
+### Helm template
+# Chart dependencies
+**/charts/*.tgz
+
