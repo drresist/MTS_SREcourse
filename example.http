@@ -1,0 +1,7 @@
+### GET request with a header
+GET 91.185.85.213/cities/
+Host: sre-course-102
+
+### GET request forecast
+GET 91.185.85.213/weatherforecast
+Host: sre-course-102
