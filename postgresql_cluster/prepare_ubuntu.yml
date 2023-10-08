@@ -1,0 +1,24 @@
+---
+- name: Install Ansible on Ubuntu servers
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install software-properties-common package
+      apt:
+        name: software-properties-common
+        state: present
+
+    - name: Add Ansible PPA
+      apt_repository:
+        repo: ppa:ansible/ansible
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Ansible
+      apt:
+        name: ansible
+        state: latest

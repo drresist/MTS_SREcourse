@@ -1,0 +1,40 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/ldest/sre-course/api
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "c4f3862"
+
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    memory: "64Mi"
+    cpu: "100m"
+  limits:
+    memory: "128Mi"
+    cpu: "200m"
+
+podEnv:
+- name: CONNECTIONSTRINGS__PGCONNECTION
+  value: Host=91.185.84.92;Port=5000;Database=weather;Username=postgres;Password=postgres-pass
+- name: ASPNETCORE__URLS
+  value: http://+:80
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations: {}
+  hosts:
+  - host: sre-course-102
+    paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: sre-course
+          port:
+            number: 80
