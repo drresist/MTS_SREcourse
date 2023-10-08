@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="consul_1.14.7_linux_amd64">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/postgresql_cluster/roles/consul/files/consul_1.14.7_linux_amd64.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
